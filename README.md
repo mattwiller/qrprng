@@ -11,7 +11,7 @@ modulo some prime number _p_:
 
 n &equiv; x&sup2; (mod p)
 
-The PRNG is reasonably fast: only about 50% slower than the default source in `math/rand`.  However, it also has the
+The PRNG is reasonably fast: only about [50% slower](#benchmarks) than the default source in `math/rand`.  However, it also has the
 added advantage that it produces a permuted sequence with no repeated values, which may be desirable in some contexts.
 
 [preshing]: https://preshing.com/20121224/how-to-generate-a-sequence-of-unique-random-integers/
@@ -63,6 +63,22 @@ for i := uint64(0); i < p; i++ {
 
 fmt.Printf(permutation)
 // [8 6 4 7 9 3 2 0 5 1 10]
+```
+
+Benchmarks
+----------
+
+```
+goos: darwin
+goarch: amd64
+pkg: github.com/mattwiller/qrprng
+cpu: Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz
+BenchmarkUInt64-16                      60565976                20.61 ns/op            0 B/op          0 allocs/op
+BenchmarkDefault-16                     55240932                21.19 ns/op            0 B/op          0 allocs/op
+BenchmarkStdLib-16                      88121001                14.28 ns/op            0 B/op          0 allocs/op
+BenchmarkStdLibWithQRPRNGSource-16      54257300                21.04 ns/op            0 B/op          0 allocs/op
+PASS
+ok      github.com/mattwiller/qrprng    12.468s
 ```
 
 License
