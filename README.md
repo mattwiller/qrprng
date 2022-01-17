@@ -1,6 +1,11 @@
 Quadratic Residue Pseudo-Random Number Generator
 ================================================
 
+[![Documentation](https://img.shields.io/badge/godoc-reference-blue.svg)](https://godoc.org/github.com/mattwiller/qrprng)
+[![GoReportCard example](https://goreportcard.com/badge/github.com/mattwiller/qrprng)](https://goreportcard.com/report/github.com/mattwiller/qrprng)
+
+
+
 A pseudo-random sequence generator for Go using [Preshing's method][preshing], based on computing quadratic residues
 modulo some prime number _p_:
 
